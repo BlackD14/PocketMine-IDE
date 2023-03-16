@@ -42,6 +42,11 @@
         ],
         "configuration": {
             "properties": {
+                "php.autoNewLine": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Add new line on completion"
+                },
                 "php.pocketMinePath": {
                     "type": "string",
                     "default": null,

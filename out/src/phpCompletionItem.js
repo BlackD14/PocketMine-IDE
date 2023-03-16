@@ -166,7 +166,11 @@ exports.Indexer = {
         if (currentClass.startsWith("\\")) currentClass = currentClass.substr(1);
         var newSuggestion = new vscode.CompletionItem(currentClass, vscode.CompletionItemKind.Class);
         newSuggestion.detail = "(class) " + currentClass;
-        newSuggestion.insertText = currentClass + ";\n";
+        if(vscode.workspace.getConfiguration('php')['autoNewLine']){
+            newSuggestion.insertText = currentClass + ";\n";
+        } else {
+            newSuggestion.insertText = currentClass + ";";
+        }
         suggestions.push(newSuggestion);
         return suggestions;
     },
